@@ -21,6 +21,112 @@ final List<String> imgList = [
 
 
 
+// class HomePage extends StatelessWidget {
+//   HomePage({@required this.auth});
+
+//   final AuthBase auth;
+
+//   Future<void> _signOut() async {
+//     try {
+//       await auth.signOut();
+//     } catch (e) {
+//       print(e.toString());
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           title: Text('Home Page'),
+//           actions: <Widget>[
+//             FlatButton(
+//               child: Text(
+//                 'Logout',
+//                 style: TextStyle(
+//                   fontSize: 18.0,
+//                   color: Colors.white,
+//                 ),
+//               ),
+//               onPressed: _signOut,
+//             ),
+//           ],
+//         ),
+//         drawer: Drawer(
+//           child: new ListView(
+//             children: <Widget>[
+//               new ListTile(
+//                   title: new Text("Announcement"),
+//                   trailing: Icon(Icons.announcement),
+//                   onTap: () {
+//                     Navigator.pop(context);
+//                     Navigator.push(
+//                       context,
+//                       MaterialPageRoute(builder: (context) => Message()),
+//                     );
+//                   }),
+//               new ListTile(
+//                   title: new Text("Daily Notices "),
+//                   trailing: Icon(Icons.notification_important),
+//                   onTap: () {
+//                     Navigator.pop(context);
+//                     Navigator.push(
+//                       context,
+//                       MaterialPageRoute(builder: (context) => Dnotice()),
+//                     );
+//                   }),
+//               Divider(),
+//               FlatButton(onPressed: _signOut, child: Text("sign out"))
+//             ],
+//           ),
+//         ),
+//         body: Column(
+//           crossAxisAlignment: CrossAxisAlignment.stretch,
+//           mainAxisAlignment: MainAxisAlignment.start,
+//           children: <Widget>[
+//             Center(
+//               child: CarouselSlider(
+//                 viewportFraction: 0.9,
+//                 aspectRatio: 2.0,
+//                 autoPlay: true,
+//                 enlargeCenterPage: true,
+//                 items: imgList.map(
+//                   (url) {
+//                     return Container(
+//                       margin: EdgeInsets.all(5.0),
+//                       child: ClipRRect(
+//                         borderRadius: BorderRadius.all(Radius.circular(5.0)),
+//                         child: Image.network(
+//                           url,
+//                           fit: BoxFit.cover,
+//                           width: 800.0,
+
+//                         ),
+//                       ),
+//                     );
+//                   },
+//                 ).toList(),
+//               ),
+//             ),
+//             Container(
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.stretch,
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: <Widget>[
+
+//                   Center(child: Text("vjvhgchc")),
+
+//                 ],
+//               ),
+//             ),
+//           ],
+//         )
+
+
+//       );
+//   }
+// }
+
 class HomePage extends StatelessWidget {
   HomePage({@required this.auth});
 
@@ -34,95 +140,128 @@ class HomePage extends StatelessWidget {
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Home Page'),
-          actions: <Widget>[
-            FlatButton(
-              child: Text(
-                'Logout',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: Colors.white,
-                ),
+      appBar: AppBar(
+        title: Text('Home Page'),
+        actions: <Widget>[
+          FlatButton(
+            child: Text(
+              'Logout',
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.white,
               ),
-              onPressed: _signOut,
             ),
-          ],
-        ),
-        drawer: Drawer(
-          child: new ListView(
-            children: <Widget>[
-              new ListTile(
-                  title: new Text("Announcement"),
-                  trailing: Icon(Icons.announcement),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Message()),
-                    );
-                  }),
-              new ListTile(
-                  title: new Text("Daily Notices "),
-                  trailing: Icon(Icons.notification_important),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Dnotice()),
-                    );
-                  }),
-              Divider(),
-              FlatButton(onPressed: _signOut, child: Text("sign out"))
-            ],
+            onPressed: _signOut,
           ),
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.start,
+        ],
+      ),
+      drawer: Drw(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(Icons.add),
+      ),
+      body: new ListView(
+        children: <Widget>[
+          CSlider(),
+          Container(
+            child: Text("cndjbjd"),
+            padding: EdgeInsets.all(20),
+            margin: EdgeInsets.all(20),
+            alignment: Alignment.bottomCenter,
+            color: Colors.black26,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class UserCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Center(
-              child: CarouselSlider(
-                viewportFraction: 0.9,
-                aspectRatio: 2.0,
-                autoPlay: true,
-                enlargeCenterPage: true,
-                items: imgList.map(
-                  (url) {
-                    return Container(
-                      margin: EdgeInsets.all(5.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                        child: Image.network(
-                          url,
-                          fit: BoxFit.cover,
-                          width: 800.0,
-
-                        ),
-                      ),
-                    );
-                  },
-                ).toList(),
-              ),
+            SizedBox(
+              height: 20,
             ),
-            Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-
-                  Center(child: Text("vjvhgchc")),
-
-                ],
-              ),
+            Text(
+              'Address:',
             ),
+            SizedBox(height: 12),
+            Placeholder()
           ],
         )
+      ],
+    );
+  }
+}
 
+class CSlider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CarouselSlider(
+      viewportFraction: 0.9,
+      aspectRatio: 2.0,
+      autoPlay: true,
+      enlargeCenterPage: true,
+      items: imgList.map(
+        (url) {
+          return Container(
+            margin: EdgeInsets.all(5.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+              child: Image.network(
+                url,
+                fit: BoxFit.cover,
+                width: 800.0,
+              ),
+            ),
+          );
+        },
+      ).toList(),
+    );
+  }
+}
 
-      );
+class Drw extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: new ListView(
+        children: <Widget>[
+          new ListTile(
+              title: new Text("Announcement"),
+              trailing: Icon(Icons.announcement),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Message()),
+                );
+              }),
+          new ListTile(
+              title: new Text("Daily Notices "),
+              trailing: Icon(Icons.notification_important),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Dnotice()),
+                );
+              }),
+          Divider(),
+        ],
+      ),
+    );
   }
 }
